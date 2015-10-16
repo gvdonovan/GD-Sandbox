@@ -1,0 +1,50 @@
+<ion-view view-title="Search">
+
+    <ion-content>
+        <!--<ion-list>-->
+            <!--<div class="list ">-->
+                <!--<label class="item item-select">-->
+                    <!--<span class="input-label">Occupancy</span>-->
+                    <!--<select>-->
+                        <!--<option selected>Owner Occupied</option>-->
+                        <!--<option>Other</option>-->
+                    <!--</select>-->
+                <!--</label>-->
+                <!--<label class="item item-select">-->
+                    <!--<span class="input-label">Property Type</span>-->
+                    <!--<select>-->
+                        <!--<option selected>Single Family</option>-->
+                        <!--<option>Other</option>-->
+                    <!--</select>-->
+                <!--</label>-->
+                <!--<label class="item item-input">-->
+                    <!--<span class="input-label">Loan Purpose</span>-->
+                    <!--<input type="text">-->
+                <!--</label>-->
+                <!--<label class="item item-input">-->
+                    <!--<span class="input-label">Purchase Price</span>-->
+                    <!--<input type="password">-->
+                <!--</label>-->
+
+                <!--<br>-->
+                <!--&lt;!&ndash;Submit&ndash;&gt;-->
+                <!--<div class="padding">-->
+                    <!--<button class="button button-block button-positive" ng-click="search()">-->
+                        <!--Submit-->
+                    <!--</button>-->
+                    <!--<p class="text-center">-->
+                        <!--<a href="#">Reset Form</a>-->
+                    <!--</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</ion-list>-->
+        <form name="searchForm" novalidate>
+            <formly-form model="vm.formData" fields="vm.formFields" form="form" options="options">
+                <div class="padding">
+                    <button class="button button-block button-royal" ng-click="vm.search()">Search</button>
+                    <!-- <button class="button button-block button-clear button-positive" ng-click="vm.recentSearches()">Recent Searches</button> -->
+                </div>
+            </formly-form>
+        </form>
+    </ion-content>
+</ion-view>

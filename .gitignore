@@ -1,0 +1,14 @@
+!.gitignore
+.idea
+.git
+hooks
+node_modules
+bower_components
+resources
+platforms
+# Ignore all plugins except email-composer which has an issue that we are fixing
+plugins/*
+!plugins/de.appplant.cordova.plugin.email-composer
+www/vendor
+.io-config.json
+karma_html/

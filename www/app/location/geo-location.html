@@ -1,0 +1,27 @@
+<ion-view view-title="Geolocation" left-buttons="leftButtons" class="bar-positive">
+
+  <ion-content>
+    <div class="card">
+      <div class="item item-divider">
+        Get My Current Location
+      </div>
+      <div class="item">
+        <strong>Longitude </strong> &nbsp {{vm.position.coords.longitude}}
+      </div>
+      <div class="item">
+
+        <strong>Latitude </strong> &nbsp {{vm.position.coords.latitude}}
+      </div>
+      <div class="item" ng-show="vm.errorMsg">
+        <p>{{vm.errorMsg}}</p>
+      </div>
+    </div>
+
+    <div class="padding">
+      <button class="button button-block button-positive" ng-click="vm.getLocation()">
+        Get My Location
+      </button>
+
+    </div>
+  </ion-content>
+</ion-view>

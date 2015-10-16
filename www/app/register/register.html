@@ -1,0 +1,30 @@
+<ion-nav-bar class="bar-positive">
+  <ion-nav-back-button>
+    
+  </ion-nav-back-button>
+</ion-nav-bar>
+<ion-view view-title="Register">
+    <ion-content has-header="true" padding="true" style="top: 75px;">
+        <div style="text-align: center;" class="padding">
+            <img src="img/logo.png " alt="Optimal Blue">
+        </div>
+        <form ng-submit="vm.register()" name="loginForm">
+            <div class="list list-inset col col-center">
+                <label class="item item-input">
+                    <input type="text" placeholder="Username" ng-model="vm.user.username" required>
+                </label>
+                <label class="item item-input">
+                    <input type="password" placeholder="Password" ng-model="vm.user.password" required>
+                </label>
+								<label class="item item-input">
+                    <input type="password" placeholder="Confirm Password" ng-model="vm.user.confirmPassword" required />
+                </label>
+                <br>
+                <div class="padding">
+                    <input type="submit" id="submit" class="button button-block button-royal" value="Register"/>
+                    <input type="button" id="register" class="button button-block button-positive" ng-click="vm.backToLogin()" value="Cancel"/>
+                </div>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

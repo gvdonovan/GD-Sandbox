@@ -1,0 +1,26 @@
+<ion-nav-bar class="bar-positive">
+    <ion-nav-back-button>
+      
+    </ion-nav-back-button>
+</ion-nav-bar>
+<ion-view view-title="Login">
+    <ion-content has-header="true" padding="true" style="top: 75px;">
+        <div style="text-align: center;" class="padding">
+            <img src="img/logo.png " alt="Optimal Blue">
+        </div>
+        <form ng-submit="vm.login()" name="loginForm">
+            <div class="list list-inset col col-center">
+                <label class="item item-input">
+                    <input type="text" placeholder="Username" ng-model="vm.user.username" required>
+                </label>
+                <label class="item item-input">
+                    <input type="password" placeholder="Password" ng-model="vm.user.password" required>
+                </label>
+                <br>
+                <div class="padding">
+                    <input type="submit" id="submit" class="button button-block button-royal" value="Submit"/>
+                </div>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

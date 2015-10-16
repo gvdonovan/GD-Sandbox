@@ -1,0 +1,17 @@
+<ion-view view-title="Notifications">
+  <ion-content class="no-padding">
+    <ion-list>
+      <div class="list card row-top" ng-repeat="notification in vm.notifications">
+        <div class="item item-divider">
+          <span ng-if="notification.isNew" class="ion-android-notifications"></span> 
+          {{ notification.timesent }}
+        </div>
+        <div class="item item-body">
+          <div>
+            {{ notification.message }}
+          </div>
+        </div>
+      </div>
+    </ion-list>
+  </ion-content>
+</ion-view>

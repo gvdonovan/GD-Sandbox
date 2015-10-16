@@ -1,0 +1,25 @@
+<ion-view view-title="Home" left-buttons="leftButtons" class="bar-positive">
+  <ion-content class="no-padding">
+    <ion-list>
+      <div class="list card" ng-click="vm.showNotifications()" ng-if="vm.newNotifications">
+        <div class="item item-divider">Lead Capture Notifications</div>
+        <div class="item item-body">
+          <span class="ion-android-notifications"></span>
+          {{ vm.numNewNotifications }} new notification{{ vm.numNewNotifications == 1 ? '' : 's'}}
+        </div>
+      </div>
+      <div class="list card" ng-click="vm.showNotifications()" ng-repeat="notificationGroup in vm.notificationGroups">
+        <div class="item item-divider">{{ notificationGroup.name }} Notifications</div>
+        <div class="item item-body">
+          <div ng-if="notificationGroup.numNew > 0">
+            <span class="ion-android-notifications"></span>
+            {{ notificationGroup.numNew }} new notification{{ notificationGroup.numNew == 1 ? '' : 's'}}
+          </div>
+          <div ng-if="notificationGroup.numNew <= 0">
+            Nothing to see here...
+          </div>
+        </div>
+      </div>
+    </ion-list>
+  </ion-content>
+</ion-view>
