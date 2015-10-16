@@ -31,8 +31,8 @@
     }
 
     function search(){
-      //formService.setFormData(vm.formData);
-      $state.go('menu.tabs.results', {"formModel": vm.formData});
+      formService.setFormData(vm.formData);
+      $state.go('menu.tabs.results');
     }
     
     function recentSearches(){

@@ -107,8 +107,8 @@
     
     function buildRequest() {
 
-      //var inputs = formService.getFormData();
-      var inputs = $stateParams.formModel;
+      var inputs = formService.getFormData();
+      //var inputs = $stateParams.formModel;
 
         var request = {
             clientId: '3431303331',
