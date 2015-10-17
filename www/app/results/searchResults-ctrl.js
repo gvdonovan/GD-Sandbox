@@ -64,12 +64,12 @@
                 "groupId": grp.id,
                 "groupName": grp.name,
                 "id": item.sortOrder,
-                "rate": item.rate,
-                "discounts": item.discounts,
-                "apr": item.apr,
-                "monthlyPayments": item.monthlyPayments,
-                "closingCosts": item.closingCosts,
-                "rebate": item.rebate
+                "rate": addZeroes(String(item.rate)),
+                "discounts": item.discounts,                
+                "apr": addZeroes(String(item.apr)),
+                "monthlyPayments": '$' + item.monthlyPayments + '.00',
+                "closingCosts": '$' + item.closingCosts + '.00',
+                "rebate": '$' + item.rebate + '.00'
               });
             });
           });
@@ -87,7 +87,6 @@
           vm.isLoading = false;
 
       });
-
       // var columns = dataService.getColumns();
       // columns.then(function(columns){
       //   vm.data.columns = columns;
@@ -105,6 +104,19 @@
       // });
     }
     
+
+    function addZeroes(str){
+      if(str.length == 4) {
+        return str + '0';
+      } else if(str.length == 3) {
+        return str + '00';
+      } else if(str.length == 2) {
+        return str + '000';
+      } else if(str.length == 1) {
+        return str + '.000';
+      } else { return str;}
+    }
+        
     function buildRequest() {
 
       var inputs = formService.getFormData();

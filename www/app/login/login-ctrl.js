@@ -30,7 +30,8 @@
       //TODO: remove this timeout when real backend implemented
       $timeout(function(){
         userService.login(vm.user.username, vm.user.password).then(function(){
-          if(vm.user.username === 'test' && vm.user.password === 'test'){
+          if (true) {
+          //if(vm.user.username === 'test' && vm.user.password === 'test'){
             $ionicLoading.hide();
             vm.user={};
             $state.go('menu.tabs.home');
