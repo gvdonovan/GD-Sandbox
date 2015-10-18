@@ -18,6 +18,7 @@
     "ionic": "~1.1.0",
     "ionicons": "~2.0.1",
     "ngCordova": "~0.1.20-alpha",
-    "underscore": "~1.8.3"
+    "underscore": "~1.8.3",
+    "accounting": "~0.3.2"
   }
 }
