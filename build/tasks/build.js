@@ -1,14 +1,14 @@
-var gulp 		= require('gulp');
-var wiredep = require('wiredep');
-var inject  = require('gulp-inject');
-var order   = require('gulp-order');
-var sass    = require('gulp-sass');
-var plumber = require('gulp-plumber');
-var minifyCss = require('gulp-minify-css');
-var fs = require('fs');
-var del = require('del');
-var runSequence = require('run-sequence');
-var shell = require('gulp-shell');
+var gulp 		 = require('gulp');
+var wiredep      = require('wiredep');
+var inject       = require('gulp-inject');
+var order        = require('gulp-order');
+var sass         = require('gulp-sass');
+var plumber      = require('gulp-plumber');
+var minifyCss    = require('gulp-minify-css');
+var fs           = require('fs');
+var del          = require('del');
+var runSequence  = require('run-sequence');
+var shell        = require('gulp-shell');
 
 
 var paths   = require('../paths')();

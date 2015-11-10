@@ -61,12 +61,12 @@
                 console.log(data);
                 var groups = [];
                 var columns = [
-                    {id: 'rate', name: 'Rate'},
-                    {id: 'discounts', name: 'Points'},
-                    {id: 'apr', name: 'APR'},
+                    {id: 'rate',            name: 'Rate'},
+                    {id: 'discounts',       name: 'Points'},
+                    {id: 'apr',             name: 'APR'},
                     {id: 'monthlyPayments', name: 'Payments'},
-                    {id: 'closingCosts', name: 'Closing'},
-                    {id: 'rebate', name: 'Rebate'}
+                    {id: 'closingCosts',    name: 'Closing'},
+                    {id: 'rebate',          name: 'Rebate'}
                 ];
                 var products = [];
                 data.results.$values.forEach(function (grp) {
@@ -74,15 +74,15 @@
 
                     grp.products.$values.forEach(function (item) {
                         products.push({
-                            "groupId": grp.id,
-                            "groupName": grp.name,
-                            "id": item.sortOrder,
-                            "rate": accounting.formatNumber(item.rate),
-                            "discounts": accounting.formatNumber(item.discounts),
-                            "apr": accounting.formatNumber(String(item.apr)),
+                            "groupId":         grp.id,
+                            "groupName":       grp.name,
+                            "id":              item.sortOrder,
+                            "rate":            accounting.formatNumber(item.rate),
+                            "discounts":       accounting.formatNumber(item.discounts),
+                            "apr":             accounting.formatNumber(String(item.apr)),
                             "monthlyPayments": accounting.formatMoney(item.monthlyPayments),
-                            "closingCosts": accounting.formatMoney(item.closingCosts),
-                            "rebate": accounting.formatMoney(item.rebate)
+                            "closingCosts":    accounting.formatMoney(item.closingCosts),
+                            "rebate":          accounting.formatMoney(item.rebate)
                         });
                     });
                 });
@@ -105,13 +105,13 @@
         function buildRequest() {
 
             var inputs = formService.getFormData();
-            //var inputs = $stateParams.formModel;
 
+            //TODO: Get creds from authentication service stored at login
             var request = {
-                clientId: '3431303331',
-                userId: '363939343932',
-                formId: '32',
-                inputs: inputs
+                clientId: '3435363434',
+                userId:   '313632333236',
+                formId:   '36',
+                inputs:   inputs
             };
             return request;
         }

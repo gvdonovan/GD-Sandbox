@@ -58,7 +58,7 @@ angular.module('OBApp', [
 
 
   })
-  .run(function ($templateRequest, formlyConfig) {
+  .run(function ($templateRequest, formlyConfig, formlyConfigHelper) {
     
     $templateRequest('app/emailTemplate/emailTemplate.html');
 
@@ -88,6 +88,7 @@ angular.module('OBApp', [
             return template;
         });
 
+        formlyConfigHelper.initialize(formlyConfig);
 
   });
 

@@ -3,6 +3,7 @@
 }
 
 /** For the task list header columns and tasks **/
+
 .flex-container {
     padding: 0;
     margin: 0;
@@ -16,23 +17,19 @@
     display: -webkit-flex;
     display: flex;
 }
-
 .wrap {
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
 }
-
 .col-header {
     font-weight: bold;
 }
-
 .col-detail {
     border-bottom: none;
     padding-top: 5px;
     padding-bottom: 5px;
     margin: 0;
 }
-
 .column {
     text-overflow: '';
     white-space: nowrap;
@@ -41,13 +38,10 @@
     float: left;
     padding: 2px 5px;
 }
-
 .col-header > .column {
     padding: 5px 5px;
 }
-
 @media (max-width: 320px) {
-
     .flex-container.wrap > div {
         width: 50%;
         max-width: 50%;
@@ -55,9 +49,7 @@
         white-space: nowrap;
         overflow: hidden;
     }
-
 }
-
 @media (min-width: 321px) {
     .flex-container.wrap > div {
         width: 33%;
@@ -67,7 +59,6 @@
         overflow: hidden;
     }
 }
-
 @media (min-width: 480px) {
     .flex-container.wrap > div {
         width: 25%;
@@ -77,7 +68,6 @@
         overflow: hidden;
     }
 }
-
 @media (min-width: 640px) {
     .flex-container.wrap > div {
         width: 20%;
@@ -87,7 +77,6 @@
         overflow: hidden;
     }
 }
-
 @media (min-width: 960px) {
     .flex-container.wrap > div {
         width: 15%;
@@ -97,14 +86,41 @@
         overflow: hidden;
     }
 }
-
-.ion-android-notifications{
-  color:red;
+.ion-android-notifications {
+    color: red;
 }
-
 button.go-back {
-  border: none;
+    border: none;
 }
+div.spinner {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 85px;
+    text-align: center;
+}
+.spinner svg {
+    width: 19% !important;
+    height: 85px !important;
+}
+
+.list .item.item-accordion {
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        transition: 0.09s all linear;
+    }
+    .list .item.item-accordion.ng-hide {
+        line-height: 0px;
+    }
+    .list .item.item-accordion.ng-hide-add,
+    .list .item.item-accordion.ng-hide-remove {
+        display: block !important;
+    }
 
 /**
  * This CSS uses adjacent selectors instead of general sibling (~) selectors
@@ -112,14 +128,12 @@ button.go-back {
  *
  * To apply the patch, include this CSS after your ionic.css include.
  */
+
 .item-radio input:checked + .radio-content .item-content {
     /* style the item content when its checked */
     background: #f7f7f7;
-
 }
-
 .item-radio input:checked + .radio-content .radio-icon {
     /* show the checkmark icon when its checked */
     visibility: visible;
-
 }
