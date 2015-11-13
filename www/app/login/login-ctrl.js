@@ -1,33 +1,35 @@
 (function () {
-        'use strict';
+    'use strict';
 
-        angular
-            .module('OBApp')
-            .controller('LoginCtrl', LoginCtrl);
+    angular
+        .module('OBApp')
+        .controller('LoginCtrl', LoginCtrl);
 
-        LoginCtrl.$inject = ['$state', '$ionicLoading', '$ionicPopup', '$timeout', 'userService', 'authService'];
+    LoginCtrl.$inject = ['$state', '$ionicLoading', '$ionicPopup', '$timeout', 'userService', 'authService'];
 
-        /* @ngInject */
-        function LoginCtrl($state, $ionicLoading, $ionicPopup, $timeout, userService, authService) {
-            /* jshint validthis: true */
-            var vm = this;
+    /* @ngInject */
+    function LoginCtrl($state, $ionicLoading, $ionicPopup, $timeout, userService, authService) {
+        /* jshint validthis: true */
+        var vm = this;
 
-            vm.title = '';
-            vm.user = {};
+        vm.title = '';
+        vm.user = {};
 
-            vm.login = login;
-            //vm.register = register;
+        vm.login = login;
 
-            function login() {
-                $ionicLoading.show({
-                    content: 'Loading',
-                    animation: 'fade-in',
-                    showBackdrop: true,
-                    showDelay: 0
-                });
+        if (authService.isAuthenticated()) {
+            $state.go('menu.tabs.home');
+        }
 
-                //TODO: delete this block and uncomment the code block below when using real backend for auth
-                //TODO: remove this timeout when real backend implemented
+        function login() {
+            $ionicLoading.show({
+                content: 'Loading',
+                animation: 'fade-in',
+                showBackdrop: true,
+                showDelay: 0
+            });
+
+            //TODO: delete this block and uncomment the code block below when using real backend for auth
 //                      $timeout(function(){
 //                        userService.login(vm.user.username, vm.user.password).then(function(){
 //                          if (true) {
@@ -46,12 +48,9 @@
 //                        });
 //                      }, 750);
 
-
-                //TODO: uncomment this code when returning to real backend for authentication
-				//vm.username = 'ClientConference';
-				//vm.user.password = 'Nashville2015';
-
-                userService.login(vm.user.username, vm.user.password).then(function () {
+            userService
+                .login(vm.user.username, vm.user.password)
+                .then(function () {
                     if (authService.isAuthenticated()) {
                         $ionicLoading.hide();
                         vm.user = {};
@@ -65,21 +64,6 @@
                         });
                     }
                 });
-            }
-
-
-        //TODO: uncomment this code when returning to real backend for authentication
-        /*
-            activate();
-
-            ////////////////
-
-            function activate() {
-              if(authService.isAuthenticated()){
-                $state.go('menu.tabs.home');
-              }
-            }
-        */
+        }
     }
-
 })();

@@ -5,9 +5,9 @@
         .module('OBApp')
         .factory('userService', userService);
 
-    userService.$inject = ['$http', '$q', 'API', 'TOKEN'];
+    userService.$inject = ['$http', '$q', 'TOKEN', 'authService'];
 
-    function userService($http, $q, API, TOKEN) {
+    function userService($http, $q, TOKEN, authService) {
         return {
             login: login,
         };
@@ -33,13 +33,20 @@
 			var url = 'http://localhost:63050/oauth2/token';
 
             //return $http.post(TOKEN, {
-			return $http.post(TOKEN.url + '/oauth2/token', {
-                username: username,
-                password: password,
-				client_id: '099153c2625149bc8ecb3e85e03f0022',
-				grant_type: 'password'
-            });
-        }
 
+            //return $http.post(TOKEN.url + '/oauth2/token', {
+            //    username: username,
+            //    password: password,
+				//client_id: '099153c2625149bc8ecb3e85e03f0022',
+				//grant_type: 'password'
+            //});
+
+            var payload = 'username=' + username + '&password=' + password + '&grant_type=password&client_id=099153c2625149bc8ecb3e85e03f0022';
+            return $http
+                .post(TOKEN.url + '/oauth2/token', payload, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
+                .success(function (response) {
+                    authService.saveToken(response.access_token);
+                });
+        }
     }
 })();

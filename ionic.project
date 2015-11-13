@@ -12,11 +12,11 @@
   "proxies": [
     {
       "path": "/api",
-      "proxyUrl": "https://qa.optimalblue.com/eoriginations/api/search"	   
+      "proxyUrl": "https://qa.optimalblue.com/eoriginations/api/search"
     },
-	{
+    {
       "path": "/mobileAuth",
-      "proxyUrl": "https://qa.optimalblue.com/eOriginations/mobileAuth"	   
+      "proxyUrl": "https://qa.optimalblue.com/eOriginations/mobileAuth"
     }
   ]
 }

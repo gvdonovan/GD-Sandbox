@@ -22,18 +22,12 @@
 
 
     function parseJwt(token) {
-      //TODO: revert to real backend to create token
-      token = mockToken;
-
       var base64Url = token.split('.')[1];
       var base64 = base64Url.replace('-', '+').replace('_', '/');
       return JSON.parse($window.atob(base64));
     }
 
     function saveToken(token) {
-      //TODO: revert to real backend to create token
-      token = mockToken;
-
       $window.localStorage['jwtToken'] = token;
     }
 

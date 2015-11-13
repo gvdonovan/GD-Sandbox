@@ -5,10 +5,10 @@
         .module('OBApp')
         .controller('SearchResultsCtrl', SearchResultsCtrl);
 
-    SearchResultsCtrl.$inject = ['$timeout', '$cordovaEmailComposer', '$stateParams', 'mailService', 'formService', 'dataService'];
+    SearchResultsCtrl.$inject = ['$timeout', '$cordovaEmailComposer', '$stateParams', 'mailService', 'formService', 'dataService', 'authService'];
 
     /* @ngInject */
-    function SearchResultsCtrl($timeout, $cordovaEmailComposer, $stateParams, mailService, formService, dataService) {
+    function SearchResultsCtrl($timeout, $cordovaEmailComposer, $stateParams, mailService, formService, dataService, authService) {
         /* jshint validthis: true */
         var vm = this;
 
@@ -24,18 +24,18 @@
 
         accounting.settings = {
             currency: {
-                symbol: "$",   // default currency symbol is '$'
+                symbol: "$",    // default currency symbol is '$'
                 format: "%s%v", // controls output: %s = symbol, %v = value/number (can be object: see below)
-                decimal: ".",  // decimal point separator
+                decimal: ".",   // decimal point separator
                 thousand: ",",  // thousands separator
-                precision: 0   // decimal places
+                precision: 0    // decimal places
             },
             number: {
-                precision: 3,  // default precision on numbers is 0
+                precision: 3,   // default precision on numbers is 0
                 thousand: ",",
                 decimal: "."
             }
-        }
+        };
 
         function toggleGroup(group) {
             if (vm.isGroupShown(group)) {
@@ -105,12 +105,13 @@
         function buildRequest() {
 
             var inputs = formService.getFormData();
+            var token = authService.getToken();
+            var params = authService.parseJwt(token);
 
-            //TODO: Get creds from authentication service stored at login
             var request = {
-                clientId: '3435363434',
-                userId:   '313632333236',
-                formId:   '36',
+                clientId: params.clientId,
+                userId:   params.userId,
+                formId:   params.formId,
                 inputs:   inputs
             };
             return request;

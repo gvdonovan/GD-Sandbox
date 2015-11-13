@@ -26,9 +26,10 @@
             formData = data;
         }
 
-        function getForm() {
+        function getForm(clientId, userId, formId) {
 
-            var url = 'https://qa.optimalblue.com/eoriginations/api/search/GetFormData/' + '3435363434' + '/313632333236/' + '36';
+            var url = API.url + '/search/GetFormData/' + clientId + '/' + userId + '/' + formId;
+            
             return $http.get(url)
                 .then(function (response) {
 
@@ -77,6 +78,7 @@
 
         function getResults(criteria) {
             var url = 'https://qa.optimalblue.com/eoriginations/api/search/GetResults';
+            
             return $http.post(url, criteria)
                 .then(function (response) {
                     return response.data;
