@@ -30,21 +30,14 @@
         //TODO: use the login and register functions below when auth backend is implemented
 
         function login(username, password) {
-			var url = 'http://localhost:63050/oauth2/token';
 
-            //return $http.post(TOKEN, {
-
-            //return $http.post(TOKEN.url + '/oauth2/token', {
-            //    username: username,
-            //    password: password,
-				//client_id: '099153c2625149bc8ecb3e85e03f0022',
-				//grant_type: 'password'
-            //});
+            username = 'ClientConference';
+            password = 'Nashville2015';
 
             var payload = 'username=' + username + '&password=' + password + '&grant_type=password&client_id=099153c2625149bc8ecb3e85e03f0022';
             return $http
                 .post(TOKEN.url + '/oauth2/token', payload, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
-                .success(function (response) {
+                .success(function (response, status, headers, config) {
                     authService.saveToken(response.access_token);
                 });
         }

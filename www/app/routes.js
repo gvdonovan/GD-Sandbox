@@ -25,12 +25,6 @@ angular
           $state.go('login');
         }
       })
-      //TODO: determine if register route should be deleted altogether
-/*      .state('register', {
-        url: '/register',
-        templateUrl: 'app/register/register.html',
-        controller: 'RegisterCtrl as vm'
-      })*/
       .state('menu', {
         abstract: true,
         templateUrl: 'app/layout/menu-layout.html',

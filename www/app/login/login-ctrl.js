@@ -17,9 +17,9 @@
 
         vm.login = login;
 
-        if (authService.isAuthenticated()) {
-            $state.go('menu.tabs.home');
-        }
+        //if (authService.isAuthenticated()) {
+        //    $state.go('menu.tabs.home');
+        //}
 
         function login() {
             $ionicLoading.show({
@@ -56,9 +56,11 @@
                         vm.user = {};
                         $state.go('menu.tabs.home');
                     } else {
+                        var mockToken =  'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6IkNsaWVudENvbmZlcmVuY2UiLCJzdWIiOiJDbGllbnRDb25mZXJlbmNlIiwicm9sZSI6IkxvYW4gT2ZmaWNlciIsImNsaWVudElkIjoiMzQzNTM2MzQzNCIsInVzZXJJZCI6IjMxMzYzMjMzMzIzNiIsImZvcm1JZCI6IjM2IiwiaXNzIjoiaHR0cDovL2p3dGF1dGh6c3J2LmF6dXJld2Vic2l0ZXMubmV0IiwiYXVkIjoiMDk5MTUzYzI2MjUxNDliYzhlY2IzZTg1ZTAzZjAwMjIiLCJleHAiOjE0NDc3ODgxMzEsIm5iZiI6MTQ0Nzc4NjMzMX0.MD8iG2Uvy_8Ph1ogmf-mM1oT7gH8YGRnLJfkhvkqAAE';
+                        authService.saveToken(mockToken);
                         $ionicLoading.hide();
                         vm.user.password = "";
-                        var alertPopup = $ionicPopup.alert({
+                        $ionicPopup.alert({
                             title: 'Login failed!',
                             template: 'Please check your credentials!'
                         });
