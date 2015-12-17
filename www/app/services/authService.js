@@ -31,8 +31,9 @@
             $window.localStorage['jwtToken'] = token;
         }
 
-        function getToken() {
-            return $window.localStorage['jwtToken'];
+        function getToken() {            
+            return mockToken;
+            //return $window.localStorage['jwtToken'];
         }
 
         function isAuthenticated() {

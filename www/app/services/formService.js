@@ -77,7 +77,7 @@
         }
 
         function getResults(criteria) {
-            var url = 'https://qa.optimalblue.com/eoriginations/api/search/GetResults';
+            var url = API.url + '/search/GetResults';
             
             return $http.post(url, criteria)
                 .then(function (response) {

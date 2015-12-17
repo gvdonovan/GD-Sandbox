@@ -43,7 +43,13 @@
         function activate() {
 
             var token = authService.getToken();
-            var params = authService.parseJwt(token);
+            //var params = authService.parseJwt(token);
+            
+            var params = {
+                clientId: '3435363434',
+                userId: '313632333236',
+                formId: '36'
+            };
 
             setTimeout(function(){
                 formService
