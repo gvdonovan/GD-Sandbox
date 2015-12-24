@@ -1,4 +1,4 @@
-# OB-Ionic
+# GD-Sandbox
 ----------
 
 ## Installation
